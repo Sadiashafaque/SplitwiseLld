@@ -36,5 +36,3 @@ public class SplitexpenseApplication implements CommandLineRunner  {
         }
     }
 }
-// Task - Create Group and expense commands
-// Next session - Storage of passwords and settleup

@@ -1,9 +1,6 @@
 package com.practice.splitexpense.models;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.Enumerated;
-import jakarta.persistence.ManyToMany;
-import jakarta.persistence.OneToMany;
+import jakarta.persistence.*;
 import lombok.*;
 
 import java.util.ArrayList;
@@ -23,11 +20,11 @@ public class Expense extends BaseModel {
     @ManyToMany
     private List<User> users = new ArrayList<>();
 
-    @OneToMany(mappedBy = "expense")
+    @OneToMany(mappedBy = "expense", fetch = FetchType.EAGER)
     private List<UserExpense> paidBy = new ArrayList<>();
 
-    @OneToMany(mappedBy = "expense")
-    private List<UserExpense> owedBy = new ArrayList<>();
+    @OneToMany(mappedBy = "expense", fetch = FetchType.EAGER)
+    private List<UserExpense> owedBy = new ArrayList<>(); //actual share
 
     @Enumerated
     private ExpenseStatus status;
